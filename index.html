@@ -62,26 +62,25 @@
   </style>
 </head>
 <body>
-
+  <!-- Exam Section -->
+  <h1 style="color:#003049; margin-top: 60px;">🕒 Exam Timer</h1>
+  <div class="container" id="exam-container"></div>
+  
   <!-- Assignment Section -->
   <h1>📚 Assignment Countdown</h1>
   <div class="container" id="assignment-container"></div>
 
-  <!-- Exam Section -->
-  <h2 style="color:#003049; margin-top: 60px;">🕒 Exam Timer</h2>
-  <div class="container" id="exam-container"></div>
-
   <script>
-    const assignmentEvents = [
-      { id: "A1", title: "Physics Assignment", date: "Apr 15, 2025 23:59:00" },
-      { id: "A2", title: "Maths Project", date: "Apr 20, 2025 18:00:00" },
-    ];
-
     const examEvents = [
       { id: "E1", title: "Construction Materials", date: "May 21, 2025 09:00:00" },
       { id: "E2", title: "Mechanics of Materials", date: "May 20, 2025 09:00:00" },
       { id: "E3", title: "Matrix Exam", date: "May 19, 2025 09:00:00" },
       { id: "E4", title: "Surveying", date: "May 16, 2025 09:00:00" },
+    ];
+    
+    const assignmentEvents = [
+      { id: "A1", title: "Physics Assignment", date: "Apr 15, 2025 23:59:00" },
+      { id: "A2", title: "Maths Project", date: "Apr 20, 2025 18:00:00" },
     ];
 
     const assignmentContainer = document.getElementById('assignment-container');
