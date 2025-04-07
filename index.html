@@ -113,7 +113,7 @@
         card.innerHTML = `
           <div class="event-title">${event.title}</div>
           <div class="countdown">
-            ${distance > 0 ? `${weeks}w ${days}d ${hours}h ${minutes}m ${seconds}s` : '✅ Submitted'}
+            ${distance > 0 ? `⏳ Time left: ${weeks}w ${days}d ${hours}h ${minutes}m ${seconds}s` : '✅ Submitted'}
           </div>
         `;
         assignmentContainer.appendChild(card);
