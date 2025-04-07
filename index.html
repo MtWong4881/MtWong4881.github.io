@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assigment Countdown</title>
+<title>Assignment Countdown</title>
 <style>
     * {
         box-sizing: border-box;
@@ -11,14 +11,14 @@
     body {
         margin: 0;
         font-family: 'Segoe UI', Tahoma, sans-serif;
-        background-color: #ffffff;
-        color: #000000;
+        background-color: #1e1f22;
+        color: #fff;
         padding: 20px;
     }
 
     h1 {
         text-align: center;
-        color: #d62828;
+        color: #ff4b4b;
         margin-bottom: 40px;
     }
 
@@ -30,11 +30,11 @@
     }
 
     .card {
-        background-color: #f4f4f4;
+        background-color: #2a2b2f;
         border-radius: 15px;
         padding: 20px;
         width: 300px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
         transition: transform 0.3s ease;
     }
 
@@ -45,13 +45,13 @@
     .event-title {
         font-size: 20px;
         margin-bottom: 10px;
-        color: #6a4c93;
+        color: #ffd369;
     }
 
     .countdown {
         font-size: 18px;
         font-weight: bold;
-        color: #d62828;
+        color: #ff4b4b;
     }
 
     @media (max-width: 600px) {
@@ -67,11 +67,20 @@
 <div class="container" id="container"></div>
 
 <script>
+    // === HOW TO ADD OR EDIT EVENTS ===
+    // Each event is added as an object in the array below.
+    // To add a new event:
+    // 1. Copy one of the existing lines (between { ... }).
+    // 2. Change the `id` to something unique (used internally).
+    // 3. Change the `title` to the name of your event.
+    // 4. Change the `date` to the date and time it starts, e.g., "Apr 10, 2025 09:00:00"
+    // Make sure all entries are separated by commas.
+
     const events = [
         { id: "Exam1", title: "Construction materials", date: "May 21, 2025 09:00:00" },
         { id: "Exam2", title: "Mechanic of mateials", date: "May 20, 2025 09:00:00" },
         { id: "Exam3", title: "Matrix exam ", date: "May 19, 2025 09:00:00" },
-        { id: "Exam4", title: "Surveying", date: "May 16, 2025 00:00:00" },
+        { id: "Exam4", title: "Surveying", date: "May 16, 2025 09:00:00" },
     ];
 
     const container = document.getElementById('container');
