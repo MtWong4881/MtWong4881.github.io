@@ -72,19 +72,19 @@
   <div class="container" id="assignment-container"></div>
 
   <script>
+    const examEvents = [
+      { id: "E1", title: "Exam 1", date: "May 21, 2025 09:00:00" },
+      { id: "E2", title: "Exam 2", date: "May 20, 2025 09:00:00" },
+      { id: "E3", title: "Exam 3", date: "May 19, 2025 09:00:00" },
+      { id: "E4", title: "Exam 4", date: "May 16, 2025 09:00:00" },
+    ];
+    
     const assignmentEvents = [
         { id: "A1", title: "Mechanic of materials", date: "April 18, 2025 17:00:00" },
         { id: "A2", title: "Construction Mateials", date: "April 22, 2025 09:00:00" },
         { id: "A3", title: "Surveying ", date: "May 25, 2025 09:00:00" },
         { id: "A4", title: "Creativeity", date: "April 30, 2025 09:00:00" },
         { id: "A5", title: "Creativeity", date: "April 16, 2025 09:00:00" },
-    ];
-
-    const examEvents = [
-      { id: "E1", title: "Exam 1", date: "May 21, 2025 09:00:00" },
-      { id: "E2", title: "Exam 2", date: "May 20, 2025 09:00:00" },
-      { id: "E3", title: "Exam 3", date: "May 19, 2025 09:00:00" },
-      { id: "E4", title: "Exam 4", date: "May 16, 2025 09:00:00" },
     ];
 
     const assignmentContainer = document.getElementById('assignment-container');
@@ -113,7 +113,7 @@
         card.innerHTML = `
           <div class="event-title">${event.title}</div>
           <div class="countdown">
-            ${distance > 0 ? `⏳ Time left: ${weeks}w ${days}d ${hours}h ${minutes}m ${seconds}s` : '✅ Submitted'}
+            ${distance > 0 ? `Time left: ${weeks}w ${days}d ${hours}h ${minutes}m ${seconds}s` : '✅ Submitted'}
           </div>
         `;
         assignmentContainer.appendChild(card);
@@ -127,12 +127,12 @@
 
         let status = '';
         if (timeSinceStart < 0) {
-          status = '🕓 Not started';
+          status = 'Not started';
         } else if (timeSinceStart >= 0 && timeSinceStart <= examDuration) {
           const h = Math.floor(timeLeft / (1000 * 60 * 60));
           const m = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
           const s = Math.floor((timeLeft % (1000 * 60)) / 1000);
-          status = `⏳ Time left: ${h}h ${m}m ${s}s`;
+          status = `Time left: ${h}h ${m}m ${s}s`;
         } else {
           status = '✅ Exam Ended';
         }
