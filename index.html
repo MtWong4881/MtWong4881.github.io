@@ -63,37 +63,42 @@
 </head>
 <body>
 
-  <!-- Exam Section -->
-  <h1 style="color:#003049; margin-top: 60px;">🕒 Exam Timer</h1>
-  <div class="container" id="exam-container"></div>
-  
   <!-- Assignment Section -->
   <h1>📚 Assignment Countdown</h1>
   <div class="container" id="assignment-container"></div>
 
+  <!-- Exam Section -->
+  <h2 style="color:#003049; margin-top: 60px;">🕒 Exam Timer</h2>
+  <div class="container" id="exam-container"></div>
+
   <script>
+    const assignmentEvents = [
+      { id: "A1", title: "Physics Assignment", date: "Apr 15, 2025 23:59:00" },
+      { id: "A2", title: "Maths Project", date: "Apr 20, 2025 18:00:00" },
+    ];
+
     const examEvents = [
       { id: "E1", title: "Construction Materials", date: "May 21, 2025 09:00:00" },
-      { id: "E2", title: "Mehcanic of materials", date: "May 20, 2025 09:00:00" },
-      { id: "E3", title: "Matrix", date: "May 19, 2025 09:00:00" },
+      { id: "E2", title: "Mechanics of Materials", date: "May 20, 2025 09:00:00" },
+      { id: "E3", title: "Matrix Exam", date: "May 19, 2025 09:00:00" },
       { id: "E4", title: "Surveying", date: "May 16, 2025 09:00:00" },
-    ];
-    
-    const assignmentEvents = [
-        { id: "A1", title: "Mechanic of materials", date: "April 18, 2025 17:00:00" },
-        { id: "A2", title: "Construction Mateials", date: "April 22, 2025 09:00:00" },
-        { id: "A3", title: "Surveying ", date: "May 25, 2025 09:00:00" },
-        { id: "A4", title: "Creativeity", date: "April 30, 2025 09:00:00" },
-        { id: "A5", title: "Creativeity", date: "April 16, 2025 09:00:00" },
     ];
 
     const assignmentContainer = document.getElementById('assignment-container');
     const examContainer = document.getElementById('exam-container');
     const examDuration = 3 * 60 * 60 * 1000; // 3 hours
 
+    function formatTime(ms) {
+      const weeks = Math.floor(ms / (1000 * 60 * 60 * 24 * 7));
+      const days = Math.floor(ms / (1000 * 60 * 60 * 24)) % 7;
+      const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((ms % (1000 * 60)) / 1000);
+      return `${weeks}w ${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
     function updateCountdowns() {
       const now = new Date().getTime();
-
       assignmentContainer.innerHTML = '';
       examContainer.innerHTML = '';
 
@@ -102,18 +107,12 @@
         const due = new Date(event.date).getTime();
         const distance = due - now;
 
-        const weeks = Math.floor(distance / (1000 * 60 * 60 * 24 * 7));
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24)) % 7;
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = `
           <div class="event-title">${event.title}</div>
           <div class="countdown">
-            ${distance > 0 ? `Time left: ${weeks}w ${days}d ${hours}h ${minutes}m ${seconds}s` : '✅ Submitted'}
+            ${distance > 0 ? formatTime(distance) : '✅ Submitted'}
           </div>
         `;
         assignmentContainer.appendChild(card);
@@ -124,15 +123,13 @@
         const start = new Date(event.date).getTime();
         const timeSinceStart = now - start;
         const timeLeft = start + examDuration - now;
+        const timeUntilStart = start - now;
 
         let status = '';
         if (timeSinceStart < 0) {
-          status = 'Not started';
-        } else if (timeSinceStart >= 0 && timeSinceStart <= examDuration) {
-          const h = Math.floor(timeLeft / (1000 * 60 * 60));
-          const m = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-          const s = Math.floor((timeLeft % (1000 * 60)) / 1000);
-          status = `Time left: ${h}h ${m}m ${s}s`;
+          status = `Starts in: ${formatTime(timeUntilStart)}`;
+        } else if (timeSinceStart <= examDuration) {
+          status = `Time left: ${formatTime(timeLeft)}`;
         } else {
           status = '✅ Exam Ended';
         }
