@@ -54,6 +54,13 @@
       color: #d62828;
     }
 
+    .end-date {
+      font-size: 18px;
+      color: #555;
+      text-align: right;
+      margin-top: 10px;
+    }
+
     @media (max-width: 600px) {
       .card {
         width: 100%;
@@ -104,8 +111,6 @@
       assignmentContainer.innerHTML = '';
       examContainer.innerHTML = '';
 
-
-
       // === ASSIGNMENTS ===
       assignmentEvents.forEach(event => {
         const due = new Date(event.date).getTime();
@@ -118,6 +123,7 @@
           <div class="countdown">
             ${distance > 0 ? formatTime(distance) : '✅ Submitted'}
           </div>
+          <div class="end-date">${new Date(event.date).toLocaleString()}</div>
         `;
         assignmentContainer.appendChild(card);
       });
@@ -143,6 +149,7 @@
         card.innerHTML = `
           <div class="event-title">${event.title}</div>
           <div class="countdown">${status}</div>
+          <div class="end-date">${new Date(event.date).toLocaleString()}</div>
         `;
         examContainer.appendChild(card);
       });
