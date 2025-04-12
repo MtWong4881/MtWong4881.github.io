@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Plan</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      line-height: 1.6;
+    }
+
+    /* Navigation Bar (same as index.html) */
+    .navbar {
+      background-color: #003049;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: #d62828;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      color: #d62828;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #333;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .section {
+      background: #f4f4f4;
+      margin-bottom: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+    }
+
+    .section h2 {
+      margin-bottom: 1rem;
+      color: #6a4c93;
+      font-size: 1.4rem;
+    }
+
+    .section p {
+      margin-bottom: 1rem;
+    }
+
+    .section ul {
+      padding-left: 1.5rem;
+    }
+
+    .section li {
+      margin-bottom: 0.5rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.8rem;
+      text-align: center;
+    }
+
+    th {
+      background-color: #003049;
+      color: white;
+    }
+
+    td {
+      background-color: #f1faff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #003049;
+      color: white;
+      margin-top: 2rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+      }
+
+      .navbar a {
+        margin: 5px 0;
+      }
+
+      th, td {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="index.html">Home</a>
+    <a href="Study Plan.html">Study Plan</a>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>University Study Plan</h1>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Week 1 -->
+    <div id="week1" class="section">
+      <h2>Week 1: Kickoff Week (10 April – 14 April)</h2>
+      <p>Goal: Familiarise yourself with the syllabus and identify weak areas.</p>
+      <table>
+        <tr>
+          <th>Time</th>
+          <th>Subject</th>
+          <th>Activity</th>
+        </tr>
+        <tr>
+          <td>9:00 AM - 10:30 AM</td>
+          <td>Surveying</td>
+          <td>Review basics and key formulas</td>
+        </tr>
+        <tr>
+          <td>10:30 AM - 12:00 PM</td>
+          <td>Mechanics of Materials</td>
+          <td>Light review of key concepts</td>
+        </tr>
+        <tr>
+          <td>1:00 PM - 2:00 PM</td>
+          <td>Construction Materials</td>
+          <td>Theory and case studies</td>
+        </tr>
+        <tr>
+          <td>2:30 PM - 3:30 PM</td>
+          <td>Matrix</td>
+          <td>Revisit basic matrix operations</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Week 2 -->
+    <div id="week2" class="section">
+      <h2>Week 2: Balanced Study Week (15 April – 21 April)</h2>
+      <p>Goal: Cover the basics for all subjects while prioritising Surveying.</p>
+      <table>
+        <tr>
+          <th>Time</th>
+          <th>Subject</th>
+          <th>Activity</th>
+        </tr>
+        <tr>
+          <td>9:00 AM - 10:30 AM</td>
+          <td>Surveying</td>
+          <td>Theory, diagrams, and practice problems</td>
+        </tr>
+        <tr>
+          <td>10:30 AM - 12:00 PM</td>
+          <td>Mechanics of Materials</td>
+          <td>Focus on problem-solving</td>
+        </tr>
+        <tr>
+          <td>1:00 PM - 2:00 PM</td>
+          <td>Construction Materials</td>
+          <td>Memorise key processes</td>
+        </tr>
+        <tr>
+          <td>2:30 PM - 3:30 PM</td>
+          <td>Matrix</td>
+          <td>Practice solving simple problems</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Week 3 -->
+    <div id="week3" class="section">
+      <h2>Week 3: Practice Week (22 April – 30 April)</h2>
+      <p>Goal: Solve past papers and focus on application-based learning.</p>
+      <ul>
+        <li>Surveying: Mock tests and diagrams</li>
+        <li>Mechanics of Materials: Exam-style problems</li>
+        <li>Construction Materials: Theory + practical applications</li>
+        <li>Matrix: Practice advanced questions</li>
+      </ul>
+    </div>
+
+    <!-- Week 4 -->
+    <div id="week4" class="section">
+      <h2>Week 4: Final Prep (1 May – 22 May)</h2>
+      <p>Goal: Prioritise exam-specific preparation and intensive revision.</p>
+      <ul>
+        <li>Surveying: Final review before the exam (16 May)</li>
+        <li>Mechanics of Materials: Focus on weak areas (exam on 20 May)</li>
+        <li>Construction Materials: Memorise key concepts (exam on 21 May)</li>
+        <li>Matrix: Solve timed past papers (exam on 22 May)</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
